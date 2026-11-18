@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX/UI Design | UNIFACHA</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #090d19;
+    --surface: #121a2b;
+    --primary: #8b7cff;
+    --secondary: #24dfc1;
+    --text: #f5f6ff;
+    --muted: #a5aec3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+    font-family: 'Space Grotesk';
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+.hero {
+    min-height: 650px;
+    padding: 100px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background:
+      radial-gradient(circle at 80% 40%, #6353d32b, transparent 35%),
+      var(--bg);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid #8b7cff66;
+    color: var(--secondary);
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Space Grotesk';
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.08;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 550px;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 30px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--secondary);
+    color: var(--bg);
+    transform: translateY(-4px);
+}
+
+.visual {
+    width: 350px;
+    height: 350px;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #7666ed, #19cdb5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 110px;
+    box-shadow: 0 20px 100px #7465ee40;
+    transform: rotate(5deg);
+    flex-shrink: 0;
+}
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    font-family: 'Space Grotesk';
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    margin-bottom: 45px;
+    line-height: 1.7;
+}
+
+.about {
+    text-align: center;
+    background: #0d1423;
+}
+
+.about .section-subtitle {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid #ffffff12;
+    padding: 35px;
+    border-radius: 18px;
+    text-align: left;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+}
+
+.card .icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-family: 'Space Grotesk';
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.learning {
+    text-align: center;
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.learning-item {
+    padding: 30px;
+    background: var(--surface);
+    border-radius: 15px;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.learning-item h3 {
+    margin: 15px 0;
+}
+
+.learning-item p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.number {
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.process {
+    background: #0d1423;
+    text-align: center;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.step {
+    padding: 25px;
+    border: 1px solid #ffffff18;
+    border-radius: 15px;
+    background: var(--surface);
+}
+
+.step span {
+    color: var(--secondary);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.step h3 {
+    margin: 15px 0;
+}
+
+.step p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.cta {
+    text-align: center;
+    background: linear-gradient(120deg, #5545b9, #147d85);
+    padding: 80px 8%;
+}
+
+.cta h2 {
+    font-family: 'Space Grotesk';
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    color: #e1eaff;
+    line-height: 1.7;
+}
+
+.cta .btn {
+    background: white;
+    color: #17152f;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid #ffffff15;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .8s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width: 800px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 75px 7%;
+    }
+
+    .hero p {
+        margin: auto;
+    }
+
+    .visual {
+        width: 230px;
+        height: 230px;
+        font-size: 75px;
+    }
+
+    .cards,
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 480px) {
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">UNIFACHA<span>.</span></div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#disciplina">A disciplina</a>
+        <a href="#aprendizado">Aprendizado</a>
+        <a href="#processo">Processo UX/UI</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <div class="tag">TECNOLOGIA • CRIATIVIDADE • EXPERIÊNCIA</div>
+
+        <h1>
+            UX/UI Design:
+            <span>criando experiências digitais.</span>
+        </h1>
+
+        <p>
+            Bem-vindo à disciplina de UX/UI Design da UNIFACHA!
+            Descubra como unir criatividade, tecnologia e empatia
+            para desenvolver interfaces intuitivas, acessíveis
+            e experiências digitais que fazem a diferença.
+        </p>
+
+        <a href="#disciplina" class="btn">
+            Explorar disciplina →
+        </a>
+    </div>
+
+    <div class="visual">
+        ✦
+    </div>
+</section>
+
+<section class="about" id="disciplina">
+    <h2 class="section-title reveal">
+        O que é UX/UI Design?
+    </h2>
+
+    <p class="section-subtitle reveal">
+        UX/UI Design é a área responsável por planejar e desenvolver
+        experiências e interfaces digitais. Seu objetivo é tornar
+        a interação entre pessoas e produtos tecnológicos mais
+        simples, agradável, eficiente e acessível.
+    </p>
+
+    <div class="cards">
+        <div class="card reveal">
+            <div class="icon">🧠</div>
+            <h3>UX Design</h3>
+            <p>
+                User Experience (Experiência do Usuário) busca
+                compreender as necessidades das pessoas,
+                identificar problemas e criar soluções que
+                proporcionem experiências positivas.
+            </p>
+        </div>
+
+        <div class="card reveal">
+            <div class="icon">🎨</div>
+            <h3>UI Design</h3>
+            <p>
+                User Interface (Interface do Usuário) trabalha
+                os elementos visuais e interativos de um produto,
+                como cores, tipografia, botões, ícones e layouts.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="learning" id="aprendizado">
+    <h2 class="section-title reveal">
+        O que vamos aprender?
+    </h2>
+
+    <p class="section-subtitle reveal">
+        Conhecimentos fundamentais para transformar ideias
+        em soluções digitais.
+    </p>
+
+    <div class="learning-grid">
+
+        <div class="learning-item reveal">
+            <div class="number">01</div>
+            <h3>Pesquisa com usuários</h3>
+            <p>
+                Entender comportamentos, necessidades,
+                expectativas e dificuldades dos usuários.
+            </p>
+        </div>
+
+        <div class="learning-item reveal">
+            <div class="number">02</div>
+            <h3>Arquitetura da informação</h3>
+            <p>
+                Organizar conteúdos e informações para
+                facilitar a navegação.
+            </p>
+        </div>
+
+        <div class="learning-item reveal">
+            <div class="number">03</div>
+            <h3>Wireframes</h3>
+            <p>
+                Criar estruturas e esboços para planejar
+                interfaces digitais.
+            </p>
+        </div>
+
+        <div class="learning-item reveal">
+            <div class="number">04</div>
+            <h3>Prototipagem</h3>
+            <p>
+                Desenvolver modelos interativos para
+                simular a experiência do produto.
+            </p>
+        </div>
+
+        <div class="learning-item reveal">
+            <div class="number">05</div>
+            <h3>Design visual</h3>
+            <p>
+                Trabalhar cores, tipografia, hierarquia
+                visual e identidade de interfaces.
+            </p>
+        </div>
+
+        <div class="learning-item reveal">
+            <div class="number">06</div>
+            <h3>Usabilidade</h3>
+            <p>
+                Avaliar interfaces e identificar melhorias
+                na experiência de utilização.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="process" id="processo">
+    <h2 class="section-title reveal">
+        Como funciona o processo UX/UI?
+    </h2>
+
+    <p class="section-subtitle reveal">
+        Do entendimento do problema à criação de uma solução.
+    </p>
+
+    <div class="steps">
+
+        <div class="step reveal">
+            <span>01</span>
+            <h3>Pesquisar</h3>
+            <p>
+                Conhecer os usuários e identificar suas
+                necessidades e problemas.
+            </p>
+        </div>
+
+        <div class="step reveal">
+            <span>02</span>
+            <h3>Planejar</h3>
+            <p>
+                Organizar informações, definir fluxos
+                e estruturar soluções.
+            </p>
+        </div>
+
+        <div class="step reveal">
+            <span>03</span>
+            <h3>Projetar</h3>
+            <p>
+                Criar layouts, interfaces e protótipos
+                interativos.
+            </p>
+        </div>
+
+        <div class="step reveal">
+            <span>04</span>
+            <h3>Testar</h3>
+            <p>
+                Avaliar a experiência, receber feedback
+                e aperfeiçoar o projeto.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <h2>O futuro é centrado nas pessoas.</h2>
+
+    <p>
+        Mais do que criar telas bonitas, UX/UI Design é
+        desenvolver soluções que melhoram a vida das pessoas.
+        <br>
+        Vamos transformar ideias em experiências!
+    </p>
+
+    <a href="#inicio" class="btn">
+        Voltar ao início ↑
+    </a>
+</section>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 UNIFACHA | Disciplina de UX/UI Design
+    </p>
+    <p style="margin-top:8px">
+        Criatividade • Tecnologia • Experiência
+    </p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+});
+
+// Navegação suave
+document.querySelectorAll('nav a, .btn').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+            event.preventDefault();
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
